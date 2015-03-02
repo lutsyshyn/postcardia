@@ -1,0 +1,23 @@
+%h1 Listing postcards
+
+%table.table
+  %thead
+    %tr
+      %th User
+      %th Recepient
+      %th Identifier
+      %th
+      %th
+      
+  %tbody
+    - @postcards.each do |postcard|
+      %tr
+        %td= postcard.user.name
+        %td= link_to postcard.recepient.name, postcard.recepient
+        %td= link_to postcard.identifier, postcard
+        %td= link_to 'Edit', edit_postcard_path(postcard)
+        %td= link_to 'Destroy', postcard, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Postcard', new_postcard_path

@@ -1,0 +1,19 @@
+= form_for @postcard do |f|
+  - if @postcard.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@postcard.errors.count, "error")} prohibited this postcard from being saved:"
+      %ul
+        - @postcard.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :user_id
+    = f.number_field :user_id
+  .field
+    = f.label :recepient_id
+    = f.number_field :recepient_id
+  .field
+    = f.label :identifier
+    = f.text_field :identifier
+  .actions
+    = f.submit 'Save'

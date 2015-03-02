@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b User:
+  = @postcard.user_id
+%p
+  %b Recepient:
+  = @postcard.recepient_id
+%p
+  %b Identifier:
+  = @postcard.identifier
+
+= link_to 'Edit', edit_postcard_path(@postcard)
+\|
+= link_to 'Back', postcards_path
